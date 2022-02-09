@@ -6,6 +6,9 @@ export const Wrapper = styled.div`
   border-radius: 20px;
   padding: 5px;
   text-align: center;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.65);
 
   h3 {
     margin: 10px 0 0 0;
