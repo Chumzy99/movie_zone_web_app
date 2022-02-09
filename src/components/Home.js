@@ -1,6 +1,6 @@
 import React from "react";
 
-// Config
+// Config imports
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from "../config";
 
 // COMPONENTS
@@ -16,6 +16,9 @@ import { useHomeFetch } from "../Hooks/useHomeFetch";
 
 // Image
 import NoImage from "../images/no_image.jpg";
+
+// const randomKey = Math.round(Math.random() * 100);
+let randomKey = 1;
 
 const Home = () => {
   const { state, loading, error, setSearchTerm, searchTerm, setIsLoadingMore } =
@@ -36,18 +39,21 @@ const Home = () => {
       ) : null}
       <SearchBar setSearchTerm={setSearchTerm} />
       <Grid header={searchTerm ? "Search Result" : "Popular Movies"}>
-        {state.results.map((movie) => (
-          <Thumb
-            key={movie.id}
-            clickable
-            image={
-              movie.poster_path
-                ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path
-                : NoImage
-            }
-            movieId={movie.id}
-          />
-        ))}
+        {state.results.map((movie) => {
+          randomKey++;
+          return (
+            <Thumb
+              key={movie.id + randomKey}
+              clickable
+              image={
+                movie.poster_path
+                  ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path
+                  : NoImage
+              }
+              movieId={movie.id}
+            />
+          );
+        })}
       </Grid>
       {loading && <Spinner />}
       {state.page < state.total_pages && !loading && (
