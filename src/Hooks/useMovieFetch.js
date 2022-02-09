@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import API from "../API";
 
 // Helpers
-import { isPersistedState, isPersistentState } from "../helpers";
+// isPersistentState
+import { isPersistedState } from "../helpers";
 
 export const useMovieFetch = (movieId) => {
   const [state, setState] = useState({});
